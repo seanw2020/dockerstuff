@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/rhel7
 
 # add software
-RUN ["yum","-y","install","man","hostname","iputils","bind-utils","git","vim","sudo"]
+RUN ["yum","-y","install","hostname","iputils","bind-utils","git","vim","sudo"]
 
 # create user
 ENV NEWUSER sean
