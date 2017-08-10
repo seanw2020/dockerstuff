@@ -19,5 +19,5 @@ USER $NEWUSER
 # add alias
 RUN echo "alias ll='ls -lha'" >> ~/.profile
 
-# run sh but read profile
+# run sh but read startup profile
 CMD /bin/sh --login
