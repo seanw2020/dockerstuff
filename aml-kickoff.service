@@ -1,0 +1,12 @@
+[Unit]
+Description=kickoff the installer
+
+[Service]
+Type=oneshot
+#Type=idle
+ExecStart=/bin/bash /data/kickoff.sh
+RemainAfterExit=true
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

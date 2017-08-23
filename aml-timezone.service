@@ -1,0 +1,12 @@
+[Unit]
+Description=aml timezone set to America/Chicago
+
+[Service]
+Type=oneshot
+#Type=idle
+ExecStart=/usr/bin/timedatectl set-timezone America/Chicago
+#RemainAfterExit=true
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
