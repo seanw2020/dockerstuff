@@ -1,0 +1,104 @@
+version: '2.1'
+services:
+  db:
+    image: &I dev # yaml anchor
+    hostname: db.ibm.com
+    privileged: true
+    volumes: 
+      - &D data:/data
+    networks:
+      ibm.com:
+        aliases:
+          - db.ibm.com
+
+  node:
+    image: *I
+    hostname: node.ibm.com
+    privileged: true
+    volumes: 
+      - *D 
+    ports:
+      - "8081"
+    networks:
+      ibm.com:
+        aliases:
+          - node.ibm.com
+
+  elk:
+    image: *I 
+    hostname: elk.ibm.com
+    privileged: true
+    volumes: 
+      - *D 
+    networks:
+      ibm.com:
+        aliases:
+          - elk.ibm.com
+ 
+  hadoop-master:
+    image: *I 
+    hostname: hadoop-master.ibm.com
+    privileged: true
+    volumes: 
+      - *D 
+    networks:
+      ibm.com:
+        aliases:
+          - hadoop-master.ibm.com
+ 
+  hadoop-secondary:
+    image: *I 
+    hostname: hadoop-secondary.ibm.com
+    privileged: true
+    volumes: 
+      - *D 
+    networks:
+      ibm.com:
+        aliases:
+          - hadoop-secondary.ibm.com
+  
+  hadoop-gateway:
+    image: *I 
+    hostname: hadoop-gateway.ibm.com
+    privileged: true
+    volumes: 
+      - *D 
+    networks:
+      ibm.com:
+        aliases:
+          - hadoop-gateway.ibm.com
+
+  hadoop-slave1:
+    image: *I 
+    hostname: hadoop-slave1.ibm.com
+    privileged: true
+    volumes: 
+      - *D 
+    networks:
+      ibm.com:
+        aliases:
+          - hadoop-slave1.ibm.com
+
+  hadoop-slave2:
+    image: *I 
+    hostname: hadoop-slave2.ibm.com
+    privileged: true
+    volumes: 
+      - *D 
+    networks:
+      ibm.com:
+        aliases:
+          - hadoop-slave2.ibm.com
+
+volumes:
+  data:
+    external: true
+
+networks:
+  ibm.com:
+
+  #default:
+  #  name: ibm.com
+  #default:
+  #  external:
+  #    name: ibm.com
