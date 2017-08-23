@@ -20,4 +20,4 @@ ifcaicent
 node-ambari
 partnumbers
 systemd
-git-completion.bash
+.git-completion.bash
