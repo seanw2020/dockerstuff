@@ -1,4 +1,5 @@
-FROM registry.access.redhat.com/rhel7
+#Amy's contrib
+#FROM registry.access.redhat.com/rhel7
 
 # change password
 RUN echo "root:howdy" | chpasswd
